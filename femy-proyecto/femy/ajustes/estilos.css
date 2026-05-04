@@ -1,0 +1,255 @@
+/* =============================================
+   FEMY - Módulo Ajustes
+   ============================================= */
+
+/* Encabezado personalizado */
+.encabezado-pagina {
+  justify-content: space-between;
+}
+
+.btn-cerrar-ajustes {
+  background: var(--blanco);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--lila-oscuro);
+  box-shadow: var(--sombra);
+  transition: var(--transicion);
+  text-decoration: none;
+}
+
+.btn-cerrar-ajustes:hover {
+  background: var(--rosa-claro);
+  color: var(--rosa-fuerte);
+}
+
+/* Tarjeta de perfil */
+.tarjeta-perfil {
+  background: linear-gradient(135deg, var(--lila-fuerte), var(--lila-medio));
+  border-radius: 20px;
+  padding: 28px;
+  color: white;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 8px 24px rgba(155, 77, 196, 0.3);
+}
+
+.avatar-usuario {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  border: 3px solid rgba(255,255,255,0.4);
+}
+
+.perfil-info-nombre {
+  font-family: var(--fuente-titulo);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.perfil-info-correo {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.perfil-info-ciclo {
+  font-size: 0.78rem;
+  opacity: 0.7;
+  margin-top: 4px;
+  background: rgba(255,255,255,0.15);
+  padding: 4px 10px;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+/* Secciones de ajustes */
+.seccion-ajustes {
+  background: var(--blanco);
+  border-radius: 18px;
+  margin-bottom: 12px;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  transition: var(--transicion);
+}
+
+.cabecera-seccion-ajustes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: var(--transicion);
+  user-select: none;
+}
+
+.cabecera-seccion-ajustes:hover {
+  background: var(--rosa-suave);
+}
+
+.seccion-icono-titulo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.icono-seccion {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.seccion-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  color: var(--texto-oscuro);
+  margin-bottom: 2px;
+}
+
+.seccion-subtitulo {
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+}
+
+.flecha-seccion {
+  color: var(--gris-texto);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.seccion-ajustes.abierta .flecha-seccion {
+  transform: rotate(180deg);
+}
+
+/* Contenido desplegable */
+.contenido-seccion {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 20px;
+  border-top: 0px solid var(--rosa-claro);
+}
+
+.contenido-seccion.abierto {
+  max-height: 800px;
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--rosa-claro);
+}
+
+/* Filas de recordatorio */
+.fila-recordatorio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--texto-oscuro);
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+.fila-recordatorio:last-child {
+  border-bottom: none;
+}
+
+/* Requisitos contraseña */
+.requisitos-texto {
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+  margin-top: 4px;
+}
+
+/* Lista de síntomas en ajustes */
+.lista-sintomas-ajustes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* FAQ */
+.faq-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h4 {
+  font-family: var(--fuente-titulo);
+  font-size: 0.95rem;
+  color: var(--lila-fuerte);
+  margin-bottom: 6px;
+}
+
+.faq-item p {
+  font-size: 0.85rem;
+  color: var(--gris-texto);
+  line-height: 1.6;
+}
+
+/* Botón de cerrar sesión */
+.btn-cerrar-sesion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  background: #FFE5E5;
+  color: var(--error);
+  border: 2px solid #FFB5B5;
+  border-radius: 16px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicion);
+  margin-top: 8px;
+}
+
+.btn-cerrar-sesion:hover {
+  background: var(--error);
+  color: white;
+  border-color: var(--error);
+}
+
+/* Pie legal */
+.aviso-legal-pie {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+  padding-bottom: 20px;
+}
+
+.aviso-legal-pie enlace {
+  color: var(--lila-medio);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+  .lista-sintomas-ajustes { grid-template-columns: 1fr; }
+  .tarjeta-perfil { flex-direction: column; text-align: center; }
+}

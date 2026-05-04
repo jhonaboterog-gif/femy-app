@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Femy — Bienvenida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+
+  <!-- PANTALLA DE BIENVENIDA -->
+  <section id="pantalla-bienvenida" class="pantalla activa">
+    <div class="fondo-decorativo">
+      <div class="circulo circulo-1"></div>
+      <div class="circulo circulo-2"></div>
+      <div class="circulo circulo-3"></div>
+    </div>
+
+    <div class="contenido-bienvenida">
+      <div class="logo-bienvenida animar-entrada">
+        <h1 class="nombre-app">Femy</h1>
+        <p class="eslogan">¡Bienvenida a la comunidad Femy!</p>
+      </div>
+
+      <div class="ilustracion-central animar-entrada retraso-2">
+        <div class="luna-grande">🌸</div>
+        <div class="orbita-puntos">
+          <span class="punto punto-1">💜</span>
+          <span class="punto punto-2">🌙</span>
+          <span class="punto punto-3">✨</span>
+        </div>
+      </div>
+
+      <div class="texto-descripcion animar-entrada retraso-3">
+        <p>Queremos acompañarte a comprender y amar cada fase de tu ciclo</p>
+      </div>
+
+      <div class="botones-bienvenida animar-entrada retraso-4">
+        <button class="boton-primario" onclick="mostrarPantalla('pantalla-inicio-sesion')">
+          Iniciar sesión
+        </button>
+        <button class="boton-secundario" onclick="window.location.href='../registro/index.html'">
+          Registrarse
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANTALLA DE INICIO DE SESIÓN -->
+  <section id="pantalla-inicio-sesion" class="pantalla" style="display: none;">
+    <div class="cabecera-formulario">
+      <button type="button" class="boton-atras" onclick="mostrarPantalla('pantalla-bienvenida')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <h2>Iniciar sesión</h2>
+    </div>
+
+    <div class="contenedor-formulario">
+      <div class="subtitulo-form">
+        <h3>¡Te damos la bienvenida de nuevo!</h3>
+        <p>Ingresa tus datos para continuar</p>
+      </div>
+
+      <div id="alerta-sesion" class="alerta alerta-error" style="display:none;"></div>
+
+      <form id="formulario-sesion" onsubmit="procesarSesion(event)">
+        <div class="campo-formulario">
+          <label for="correo-sesion">Correo electrónico</label>
+          <input type="email" id="correo-sesion" placeholder="ejemplo@gmail.com" required />
+        </div>
+
+        <div class="campo-formulario">
+          <label for="contrasena-sesion">Contraseña</label>
+          <div class="campo-contrasena">
+            <input type="password" id="contrasena-sesion" placeholder="•••••••" required />
+            <button type="button" class="ojo-contrasena" onclick="alternarContrasena('contrasena-sesion', this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <span class="enlace-olvido" onclick="mostrarPantalla('pantalla-recuperar')"
+          style="cursor: pointer; display: block; margin-bottom: 20px;">
+          ¿Olvidaste tu contraseña?
+        </span>
+
+        <button type="submit" class="boton-primario">
+          Iniciar sesión
+        </button>
+      </form>
+
+      <p class="texto-alternativo">
+        ¿Aún no tienes cuenta?
+        <span class="enlace" onclick="window.location.href='../registro/index.html'"
+          style="cursor: pointer; font-weight: 600;">Crear cuenta</span>
+      </p>
+
+      <p class="aviso-legal">
+        <span style="cursor: pointer;">Políticas de privacidad</span> y <span style="cursor: pointer;">Términos de
+          servicio</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- PANTALLA DE RECUPERAR CONTRASEÑA -->
+  <section id="pantalla-recuperar" class="pantalla" style="display: none;">
+    <div class="cabecera-formulario">
+      <button type="button" class="boton-atras" onclick="mostrarPantalla('pantalla-inicio-sesion')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <h2>Recuperar contraseña</h2>
+    </div>
+
+    <div class="contenedor-formulario">
+      <div class="subtitulo-form">
+        <div class="icono-form">🔐</div>
+        <h3>Recuperar contraseña</h3>
+        <p>Ingresa tu correo y te enviaremos un enlace de recuperación.</p>
+      </div>
+
+      <div id="alerta-recuperar" class="alerta" style="display:none;"></div>
+
+      <form onsubmit="procesarRecuperacion(event)">
+        <div class="campo-formulario">
+          <label for="correo-recuperar">Correo electrónico</label>
+          <input type="email" id="correo-recuperar" placeholder="tu@correo.com" required />
+        </div>
+
+        <button type="submit" class="boton-primario" style="margin-top:24px;">
+          Enviar enlace de recuperación
+        </button>
+      </form>
+
+      <p class="texto-alternativo">
+        ¿Recordaste tu contraseña?
+        <span class="enlace" onclick="mostrarPantalla('pantalla-inicio-sesion')"
+          style="cursor: pointer; font-weight: 600;">Volver a iniciar sesión</span>
+      </p>
+    </div>
+  </section>
+
+  <script src="../assets/js/global.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

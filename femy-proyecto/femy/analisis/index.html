@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Femy — Análisis</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+
+  <header class="encabezado-pagina">
+    <h1>Análisis</h1>
+    <button class="btn-exportar" onclick="exportarDatos()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" y1="15" x2="12" y2="3" />
+      </svg>
+      Exportar
+    </button>
+  </header>
+
+  <div class="contenedor-principal">
+
+    <!-- ESTADÍSTICAS RÁPIDAS -->
+    <div class="grilla-estadisticas animar-entrada" id="grilla-estadisticas">
+      <!-- Generadas por JS -->
+    </div>
+
+    <!-- GRÁFICO DE DURACIÓN DE CICLOS -->
+    <div class="tarjeta animar-entrada retraso-2">
+      <h3 class="titulo-grafico">Duración de mis ciclos</h3>
+      <div id="grafico-ciclos" class="contenedor-grafico">
+        <!-- Generado por JS (SVG) -->
+      </div>
+    </div>
+
+    <!-- HISTORIAL DE CICLOS -->
+    <div class="tarjeta animar-entrada retraso-3">
+      <div class="encabezado-seccion">
+        <h3 class="titulo-seccion">Historial 2025</h3>
+        <span id="contador-ciclos" class="badge-contador"></span>
+      </div>
+      <div id="lista-historial" class="lista-historial">
+        <!-- Generado por JS -->
+      </div>
+    </div>
+
+    <!-- SÍNTOMAS MÁS FRECUENTES -->
+    <div class="tarjeta animar-entrada retraso-4">
+      <h3 class="titulo-seccion">Mis síntomas frecuentes</h3>
+      <div id="grafico-sintomas" class="grafico-barras-horizontal">
+        <!-- Generado por JS -->
+      </div>
+    </div>
+
+  </div>
+
+  <div id="nav-contenedor"></div>
+  <script src="../assets/js/global.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+/* FEMY - Módulo Registro */
+
+body,
+cuerpo {
+  min-height: 100vh;
+  background: var(--rosa-suave);
+}
+
+/* BARRA DE PASOS */
+.barra-pasos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 32px 8px;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  background: var(--rosa-suave);
+  z-index: 100;
+  border-bottom: 1px solid var(--rosa-claro);
+}
+
+.paso {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--rosa-claro);
+  color: var(--gris-texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: var(--transicion);
+  flex-shrink: 0;
+}
+
+.paso.activo {
+  background: var(--lila-medio);
+  color: var(--blanco);
+  box-shadow: 0 4px 12px rgba(201, 127, 232, 0.4);
+  transform: scale(1.1);
+}
+
+.paso.completado {
+  background: var(--lila-fuerte);
+  color: var(--blanco);
+}
+
+.linea-paso {
+  flex: 1;
+  height: 3px;
+  background: var(--rosa-claro);
+  max-width: 80px;
+  transition: var(--transicion);
+}
+
+.linea-paso.activa {
+  background: var(--lila-medio);
+}
+
+/* PASOS DE REGISTRO */
+.paso-registro {
+  display: none;
+  min-height: calc(100vh - 80px);
+}
+
+.paso-registro.activo {
+  display: block;
+  animation: aparecer 0.4s ease forwards;
+}
+
+/* ENCABEZADO DEL PASO */
+.encabezado-paso {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 32px 16px;
+}
+
+.boton-atras-registro {
+  background: var(--blanco);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--lila-oscuro);
+  box-shadow: var(--sombra);
+  transition: var(--transicion);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.boton-atras-registro:hover {
+  background: var(--lila-claro);
+  transform: scale(1.05);
+}
+
+.titulo-paso {
+  font-family: var(--fuente-titulo);
+  font-size: 1.5rem;
+  color: var(--lila-fuerte);
+  margin-bottom: 2px;
+}
+
+.subtitulo-paso {
+  font-size: 0.82rem;
+  color: var(--gris-texto);
+  font-weight: 500;
+}
+
+/* CONTENEDOR DEL PASO */
+.contenedor-paso {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 32px 60px;
+}
+
+/* Logo mini */
+.logo-mini {
+  font-family: var(--fuente-titulo);
+  font-size: 2rem;
+  color: var(--lila-fuerte);
+  text-align: center;
+  margin-bottom: 28px;
+  font-weight: 700;
+}
+
+/* Campo contraseña */
+.campo-contrasena {
+  position: relative;
+}
+
+.campo-contrasena entrada,
+.campo-contrasena input {
+  padding-right: 15px;
+}
+
+.ojo-contrasena {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gris-texto);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: var(--transicion);
+}
+
+.ojo-contrasena:hover {
+  color: var(--lila-oscuro);
+}
+
+/* Requisitos de contraseña */
+.requisitos-contrasena {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.requisito {
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+  transition: var(--transicion);
+  font-weight: 500;
+}
+
+.requisito.cumplido {
+  color: var(--exito);
+}
+
+/* Separador de sección */
+separador.separador-seccion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+separador linea {
+  flex: 1;
+  height: 1px;
+  background: var(--rosa-claro);
+  display: block;
+}
+
+separador texto {
+  font-size: 0.8rem;
+  color: var(--gris-texto);
+  white-space: nowrap;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Fila de campos */
+.fila-campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* SÍNTOMAS */
+.pregunta-sintomas {
+  margin-bottom: 20px;
+}
+
+.pregunta-sintomas p {
+  font-family: var(--fuente-titulo);
+  font-size: 1.2rem;
+  color: var(--lila-fuerte);
+  margin-bottom: 6px;
+}
+
+.ayuda-texto {
+  font-size: 0.82rem;
+  color: var(--gris-texto);
+}
+
+.lista-sintomas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.item-sintoma {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--blanco);
+  border: 2px solid var(--rosa-claro);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: var(--transicion);
+  font-size: 0.9rem;
+  font-weight: 500;
+  user-select: none;
+}
+
+.item-sintoma:hover {
+  border-color: var(--lila-medio);
+  background: var(--lila-claro);
+}
+
+.item-sintoma.seleccionado {
+  border-color: var(--lila-oscuro);
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+}
+
+.item-sintoma .icono-sintoma {
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+}
+
+.item-sintoma .checkbox-sintoma {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--rosa-medio);
+  border-radius: 6px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transicion);
+  flex-shrink: 0;
+}
+
+.item-sintoma.seleccionado .checkbox-sintoma {
+  background: var(--lila-oscuro);
+  border-color: var(--lila-oscuro);
+  color: white;
+}
+
+/* Aviso legal */
+.aviso-legal {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+}
+
+.aviso-legal enlace {
+  color: var(--lila-medio);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width: 600px) {
+  .fila-campos {
+    grid-template-columns: 1fr;
+  }
+
+  .lista-sintomas {
+    grid-template-columns: 1fr;
+  }
+
+  .contenedor-paso {
+    padding: 16px 20px 60px;
+  }
+
+  .encabezado-paso {
+    padding: 20px 20px 12px;
+  }
+}
+
+@media (min-width: 900px) {
+  .contenedor-paso {
+    background: var(--blanco);
+    border-radius: var(--radio-tarjeta);
+    box-shadow: var(--sombra);
+    padding: 48px;
+    margin: 24px auto;
+  }
+}

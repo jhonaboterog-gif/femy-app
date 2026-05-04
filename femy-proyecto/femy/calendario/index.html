@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Femy — Calendario</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado-pagina">
+    <h1>Calendario</h1>
+    <div style="display:flex;gap:8px;">
+      <button class="btn-icono-enc" id="btn-hoy" onclick="irAHoy()" title="Hoy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="contenedor-principal">
+
+    <!-- NAVEGACIÓN DEL MES -->
+    <div class="nav-mes animar-entrada">
+      <button class="btn-mes" id="btn-mes-anterior" onclick="cambiarMes(-1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <h2 id="titulo-mes" class="titulo-mes">Noviembre 2025</h2>
+      <button class="btn-mes" id="btn-mes-siguiente" onclick="cambiarMes(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- LEYENDA -->
+    <div class="leyenda-calendario animar-entrada retraso-1">
+      <div class="leyenda-item"><span class="punto-leyenda" style="background:#E8527A;"></span>Período</div>
+      <div class="leyenda-item"><span class="punto-leyenda" style="background:#A8E6CF;"></span>Fértil</div>
+      <div class="leyenda-item"><span class="punto-leyenda" style="background:#FFD97D;"></span>Ovulación</div>
+      <div class="leyenda-item"><span class="punto-leyenda" style="background:#EDD5F8;"></span>Premenstrual</div>
+    </div>
+
+    <!-- GRILLA DEL CALENDARIO -->
+    <div class="tarjeta calendario-tarjeta animar-entrada retraso-2">
+      <!-- Cabecera días -->
+      <div class="cabecera-dias">
+        <span>Dom</span><span>Lun</span><span>Mar</span>
+        <span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span>
+      </div>
+      <!-- Días del mes -->
+      <div id="grilla-dias" class="grilla-dias">
+        <!-- Generados por JS -->
+      </div>
+    </div>
+
+    <!-- DETALLE DEL DÍA SELECCIONADO -->
+    <div id="detalle-dia" class="tarjeta detalle-dia" style="display:none;">
+      <!-- Generado por JS -->
+    </div>
+
+    <!-- PANEL: EDITAR PERÍODO -->
+    <div id="panel-editar-periodo" class="tarjeta panel-editar" style="display:none;">
+      <div class="encabezado-panel-editar">
+        <h3>Editar período</h3>
+        <button onclick="document.getElementById('panel-editar-periodo').style.display='none'"
+          class="btn-cerrar-panel">✕</button>
+      </div>
+      <form onsubmit="guardarEdicionPeriodo(event)">
+        <div class="campo-formulario">
+          <label>Cada cuántos días llega tu regla</label>
+          <input type="number" id="editar-ciclo" min="21" max="45" placeholder="28" />
+        </div>
+        <div class="campo-formulario">
+          <label>Cuántos días dura la regla</label>
+          <input type="number" id="editar-periodo" min="2" max="10" placeholder="5" />
+        </div>
+        <div class="campo-formulario">
+          <label>Fecha de inicio</label>
+          <input type="date" id="editar-fecha-inicio" />
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;">
+          <button type="submit" class="boton-primario">Guardar</button>
+          <button type="button" class="boton-secundario"
+            onclick="document.getElementById('panel-editar-periodo').style.display='none'">Regresar</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div id="nav-contenedor"></div>
+
+  <script src="../assets/js/global.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Femy — Autocuidado</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+
+  <header class="encabezado-pagina">
+    <h1>Autocuidado</h1>
+    <div id="fase-badge" class="badge-fase-actual"></div>
+  </header>
+
+  <div class="contenedor-principal">
+
+    <!-- BANNER DE FASE -->
+    <div id="banner-fase" class="banner-fase animar-entrada">
+      <!-- Generado por JS -->
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <div class="categorias-scroll animar-entrada retraso-1">
+      <button class="chip-categoria activo" onclick="filtrarCategoria('todo', this)">Todos</button>
+      <button class="chip-categoria" onclick="filtrarCategoria('alivio', this)">🩹 Alivio</button>
+      <button class="chip-categoria" onclick="filtrarCategoria('nutricion', this)">🥗 Nutrición</button>
+      <button class="chip-categoria" onclick="filtrarCategoria('ejercicio', this)">🧘 Movimiento</button>
+      <button class="chip-categoria" onclick="filtrarCategoria('remedios', this)">🌿 Remedios</button>
+      <button class="chip-categoria" onclick="filtrarCategoria('emocional', this)">💆 Emocional</button>
+    </div>
+
+    <!-- LISTA DE ARTÍCULOS -->
+    <div id="lista-articulos" class="lista-articulos animar-entrada retraso-2">
+      <!-- Generados por JS -->
+    </div>
+
+    <!-- MODAL: CONTENIDO DE ARTÍCULO -->
+    <div id="modal-articulo" class="modal-articulo" style="display:none;">
+      <div class="modal-articulo-contenido">
+        <div class="modal-articulo-encabezado" id="modal-art-encabezado">
+          <button class="btn-cerrar-articulo" onclick="cerrarArticulo()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Volver
+          </button>
+        </div>
+        <div id="modal-art-cuerpo" class="modal-art-cuerpo"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="nav-contenedor"></div>
+  <script src="../assets/js/global.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

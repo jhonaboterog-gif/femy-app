@@ -1,0 +1,483 @@
+/* FEMY - Estilos Globales */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Paleta de colores */
+  --rosa-suave: #FFF0F3;
+  --rosa-claro: #FFD6E0;
+  --rosa-medio: #FF9CB0;
+  --rosa-fuerte: #E8527A;
+  --lila-claro: #EDD5F8;
+  --lila-medio: #C97FE8;
+  --lila-oscuro: #9B4DC4;
+  --lila-fuerte: #7B2D9E;
+  --amarillo-ciclo: #FFD97D;
+  --naranja-ovulacion: #FF9A3C;
+  --verde-fertil: #A8E6CF;
+  --blanco: #FFFFFF;
+  --gris-claro: #F5F5F5;
+  --gris-texto: #6B6B6B;
+  --texto-oscuro: #2D2D2D;
+  --error: #E05252;
+  --exito: #52C07A;
+
+  /* Tipografía */
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-cuerpo: 'DM Sans', sans-serif;
+
+  /* Espaciado */
+  --radio-btn: 12px;
+  --radio-tarjeta: 20px;
+  --sombra: 0 4px 20px rgba(155, 77, 196, 0.12);
+  --sombra-fuerte: 0 8px 32px rgba(155, 77, 196, 0.2);
+
+  /* Transiciones */
+  --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset */
+*,
+*::antes,
+*::despues {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+cuerpo,
+body {
+  font-family: var(--fuente-cuerpo);
+  background: var(--rosa-suave);
+  color: var(--texto-oscuro);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* BARRA DE NAVEGACIÓN GLOBAL */
+.barra-navegacion {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--blanco);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0 16px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  border-top: 1px solid var(--rosa-claro);
+}
+
+.nav-elemento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--gris-texto);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 12px;
+  transition: var(--transicion);
+  cursor: pointer;
+}
+
+.nav-elemento svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.nav-elemento:hover,
+.nav-elemento.activo {
+  color: var(--lila-oscuro);
+  background: var(--lila-claro);
+}
+
+.nav-elemento.activo svg {
+  stroke: var(--lila-oscuro);
+}
+
+/* BOTONES */
+.boton-primario {
+  background: var(--lila-medio);
+  color: var(--blanco);
+  border: none;
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: var(--transicion);
+  letter-spacing: 0.3px;
+}
+
+.boton-primario:hover {
+  background: var(--lila-fuerte);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(155, 77, 196, 0.35);
+}
+
+.boton-secundario {
+  background: transparent;
+  color: var(--lila-oscuro);
+  border: 2px solid var(--lila-medio);
+  border-radius: 50px;
+  padding: 12px 32px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: var(--transicion);
+}
+
+.boton-secundario:hover {
+  background: var(--lila-claro);
+  transform: translateY(-2px);
+}
+
+.boton-peligro {
+  background: var(--rosa-fuerte);
+  color: var(--blanco);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 32px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+/* CAMPOS DE FORMULARIO */
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.campo-formulario etiqueta,
+.campo-formulario label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gris-texto);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.campo-formulario entrada,
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+  background: var(--blanco);
+  border: 2px solid var(--rosa-claro);
+  border-radius: var(--radio-btn);
+  padding: 12px 16px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.95rem;
+  color: var(--texto-oscuro);
+  transition: var(--transicion);
+  outline: none;
+  width: 100%;
+}
+
+.campo-formulario entrada:focus,
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+  border-color: var(--lila-medio);
+  box-shadow: 0 0 0 3px rgba(201, 127, 232, 0.15);
+}
+
+.campo-formulario entrada.error,
+.campo-formulario input.error {
+  border-color: var(--error);
+}
+
+.mensaje-error {
+  font-size: 0.8rem;
+  color: var(--error);
+  margin-top: 4px;
+}
+
+/* TARJETAS */
+.tarjeta {
+  background: var(--blanco);
+  border-radius: var(--radio-tarjeta);
+  padding: 24px;
+  box-shadow: var(--sombra);
+  margin-bottom: 16px;
+}
+
+.tarjeta-rosa {
+  background: linear-gradient(135deg, #FFF0F3 0%, #FFD6E0 100%);
+  border-radius: var(--radio-tarjeta);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+/* ENCABEZADOS */
+.encabezado-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px 16px;
+  position: sticky;
+  top: 0;
+  background: var(--rosa-suave);
+  z-index: 100;
+  border-bottom: 1px solid var(--rosa-claro);
+}
+
+.encabezado-pagina h1 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.6rem;
+  color: var(--lila-fuerte);
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor-principal {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 32px 100px;
+}
+
+/* CHIPS / ETIQUETAS DE FASE */
+.etiqueta-fase {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.fase-fertil {
+  background: #A8E6CF;
+  color: #1A6B40;
+}
+
+.fase-ovulacion {
+  background: var(--amarillo-ciclo);
+  color: #7A5000;
+}
+
+.fase-periodo {
+  background: var(--rosa-claro);
+  color: var(--rosa-fuerte);
+}
+
+.fase-lutea {
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+}
+
+/* CASILLAS DE VERIFICACIÓN PERSONALIZADAS */
+.casilla-verificacion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--blanco);
+  border: 2px solid var(--rosa-claro);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transicion);
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.casilla-verificacion:hover {
+  border-color: var(--lila-medio);
+  background: var(--lila-claro);
+}
+
+.casilla-verificacion input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--lila-oscuro);
+  cursor: pointer;
+}
+
+.casilla-verificacion.seleccionada {
+  border-color: var(--lila-oscuro);
+  background: var(--lila-claro);
+}
+
+/* TOGGLE / INTERRUPTOR */
+.interruptor {
+  position: relative;
+  width: 52px;
+  height: 28px;
+}
+
+.interruptor entrada,
+.interruptor input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.deslizador {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gris-claro);
+  border-radius: 28px;
+  transition: var(--transicion);
+}
+
+.deslizador:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: var(--transicion);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.interruptor entrada:checked+.deslizador,
+.interruptor input:checked+.deslizador {
+  background: var(--lila-medio);
+}
+
+.interruptor entrada:checked+.deslizador:before,
+.interruptor input:checked+.deslizador:before {
+  transform: translateX(24px);
+}
+
+/* ANIMACIONES */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulsar {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animar-entrada {
+  animation: aparecer 0.5s ease forwards;
+}
+
+/* Delays escalonados */
+.retraso-1 {
+  animation-delay: 0.1s;
+  opacity: 0;
+}
+
+.retraso-2 {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.retraso-3 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.retraso-4 {
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+.retraso-5 {
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+/* ALERTAS / NOTIFICACIONES */
+.alerta {
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alerta-error {
+  background: #FFE5E5;
+  color: var(--error);
+  border: 1px solid #FFC5C5;
+}
+
+.alerta-exito {
+  background: #E5FFE5;
+  color: var(--exito);
+  border: 1px solid #C5FFC5;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .contenedor-principal {
+    padding: 16px 16px 100px;
+  }
+
+  .encabezado-pagina {
+    padding: 16px 20px;
+  }
+}
+
+/* SCROLLBAR PERSONALIZADO */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--rosa-suave);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rosa-medio);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lila-medio);
+}

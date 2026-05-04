@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Femy — Inicio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado-inicio">
+    <div class="saludo-usuario">
+      <h1 id="texto-saludo">Hola 👋</h1>
+      <p class="fecha-hoy" id="fecha-hoy">Hoy</p>
+    </div>
+    <div class="iconos-encabezado">
+      <button type="button" class="icono-btn" id="btn-notificacion" title="Recordatorios">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+          <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+          <path d="M13.73 21a2 2 0 01-3.46 0" />
+        </svg>
+        <span class="badge-notif" id="badge-notif"></span>
+      </button>
+      <a href="../ajustes/index.html" class="icono-btn" title="Ajustes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
+          <circle cx="12" cy="12" r="3" />
+          <path
+            d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="contenedor-principal">
+
+    <!-- TARJETA PRINCIPAL DEL CICLO -->
+    <div class="tarjeta-ciclo-principal animar-entrada" id="tarjeta-ciclo">
+      <!-- Contenido generado por JS -->
+    </div>
+
+    <!-- BOTONES DE ACCIÓN DEL PERIODO -->
+    <div class="botones-periodo animar-entrada retraso-2" id="botones-periodo">
+      <!-- Generados por JS -->
+    </div>
+
+    <!-- FASES DEL CICLO -->
+    <div class="tarjeta animar-entrada retraso-3">
+      <h3 class="titulo-seccion">Fase del ciclo</h3>
+      <div id="lista-fases" class="lista-fases">
+        <!-- Generados por JS -->
+      </div>
+    </div>
+
+    <!-- SÍNTOMAS DE HOY -->
+    <div class="tarjeta animar-entrada retraso-4">
+      <div class="encabezado-seccion">
+        <h3 class="titulo-seccion">Mis síntomas registrados</h3>
+        <button type="button" class="enlace-editar" onclick="mostrarModalSintomas()">Editar</button>
+      </div>
+      <div id="sintomas-hoy" class="chips-sintomas">
+        <!-- Generados por JS -->
+      </div>
+    </div>
+
+    <!-- CONSEJOS DEL DÍA -->
+    <div class="tarjeta-consejo animar-entrada retraso-5" id="tarjeta-consejo">
+      <!-- Generado por JS -->
+    </div>
+
+  </main>
+
+  <!-- MODAL: INICIO/FIN DE PERIODO -->
+  <div id="modal-periodo" class="modal-overlay" style="display:none;">
+    <div class="modal-contenido">
+      <div class="modal-encabezado">
+        <h3 id="modal-titulo">Registrar inicio del período</h3>
+        <button type="button" onclick="cerrarModal('modal-periodo')" class="btn-cerrar-modal">✕</button>
+      </div>
+      <div class="modal-cuerpo">
+        <div class="campo-formulario">
+          <label for="fecha-modal-periodo">Fecha</label>
+          <input type="date" id="fecha-modal-periodo" />
+        </div>
+        <div class="campo-formulario">
+          <label for="flujo-modal">Flujo</label>
+          <select id="flujo-modal">
+            <option value="leve">Leve</option>
+            <option value="moderado" selected>Moderado</option>
+            <option value="abundante">Abundante</option>
+            <option value="muy-abundante">Muy abundante</option>
+          </select>
+        </div>
+        <div class="campo-formulario">
+          <label for="notas-modal">Notas (opcional)</label>
+          <textarea id="notas-modal" placeholder="¿Cómo te sientes hoy?" rows="3"
+            style="border:2px solid var(--rosa-claro);border-radius:12px;padding:12px;font-family:inherit;font-size:0.9rem;resize:none;outline:none;width:100%;"></textarea>
+        </div>
+      </div>
+      <div class="modal-pie">
+        <button type="button" class="boton-primario" onclick="guardarRegistroPeriodo()">Guardar</button>
+        <button type="button" class="boton-secundario" onclick="cerrarModal('modal-periodo')"
+          style="margin-top:10px;">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: EDITAR SÍNTOMAS -->
+  <div id="modal-sintomas" class="modal-overlay" style="display:none;">
+    <div class="modal-contenido">
+      <div class="modal-encabezado">
+        <h3>Mis síntomas</h3>
+        <button type="button" onclick="cerrarModal('modal-sintomas')" class="btn-cerrar-modal">✕</button>
+      </div>
+      <div class="modal-cuerpo" id="lista-sintomas-modal">
+        <!-- Generados por JS -->
+      </div>
+      <div class="modal-pie">
+        <button type="button" class="boton-primario" onclick="guardarSintomasModal()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <div id="nav-contenedor"></div>
+
+  <script src="../assets/js/global.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

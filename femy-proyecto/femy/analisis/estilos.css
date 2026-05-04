@@ -1,0 +1,205 @@
+/* FEMY - Módulo Análisis */
+
+/* Botón exportar */
+.btn-exportar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--lila-claro);
+  border: none;
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--lila-fuerte);
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.btn-exportar:hover {
+  background: var(--lila-medio);
+  color: white;
+}
+
+/* Grilla de estadísticas */
+.grilla-estadisticas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tarjeta-estadistica {
+  background: var(--blanco);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: var(--sombra);
+  text-align: center;
+  transition: var(--transicion);
+}
+
+.tarjeta-estadistica:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-fuerte);
+}
+
+.stat-numero {
+  font-family: var(--fuente-titulo);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-unidad {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  opacity: 0.7;
+}
+
+.stat-etiqueta {
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+}
+
+/* Gráfico de ciclos */
+.titulo-grafico {
+  font-family: var(--fuente-titulo);
+  font-size: 1.1rem;
+  color: var(--lila-fuerte);
+  margin-bottom: 20px;
+}
+
+.contenedor-grafico {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.contenedor-grafico svg {
+  min-width: 300px;
+  width: 100%;
+}
+
+/* Historial */
+.badge-contador {
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.lista-historial {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-historial {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gris-claro);
+}
+
+.item-historial:last-child {
+  border-bottom: none;
+}
+
+.historial-indicador {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.historial-info {
+  flex: 1;
+}
+
+.historial-fechas {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--texto-oscuro);
+  margin-bottom: 2px;
+}
+
+.historial-duracion {
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+}
+
+.historial-barra {
+  height: 8px;
+  border-radius: 50px;
+  min-width: 30px;
+}
+
+/* Gráfico de síntomas */
+.grafico-barras-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.barra-sintoma {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.barra-sintoma-nombre {
+  min-width: 160px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--texto-oscuro);
+}
+
+.barra-sintoma-track {
+  flex: 1;
+  height: 10px;
+  background: var(--gris-claro);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.barra-sintoma-fill {
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(90deg, var(--lila-medio), var(--rosa-fuerte));
+  transition: width 1s ease;
+}
+
+.barra-sintoma-valor {
+  min-width: 30px;
+  text-align: right;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--lila-oscuro);
+}
+
+/* Eje Y del gráfico SVG */
+
+.eje-texto {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  fill: #6B6B6B;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .grilla-estadisticas {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .barra-sintoma-nombre {
+    min-width: 110px;
+    font-size: 0.78rem;
+  }
+}

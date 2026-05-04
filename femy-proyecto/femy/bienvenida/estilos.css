@@ -1,0 +1,385 @@
+/* FEMY - Módulo Bienvenida / Inicio de Sesión */
+
+body,
+cuerpo {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/*  PANTALLAS */
+.pantalla {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  background: var(--rosa-suave);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+  overflow-y: auto;
+}
+
+.pantalla.activa {
+  display: flex;
+}
+
+/* PANTALLA DE BIENVENIDA */
+#pantalla-bienvenida {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondos decorativos */
+.fondo-decorativo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.circulo {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.circulo-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--lila-medio);
+  top: -150px;
+  right: -100px;
+}
+
+.circulo-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--rosa-medio);
+  bottom: -80px;
+  left: -80px;
+}
+
+.circulo-3 {
+  width: 200px;
+  height: 200px;
+  background: var(--amarillo-ciclo);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Contenido principal de bienvenida */
+.contenido-bienvenida {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.logo-bienvenida {
+  margin-bottom: 40px;
+}
+
+.nombre-app {
+  font-family: var(--fuente-titulo);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--lila-fuerte);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.eslogan {
+  font-size: 1rem;
+  color: var(--gris-texto);
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Ilustración central */
+.ilustracion-central {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 36px;
+}
+
+.luna-grande {
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  animation: pulsar 3s ease-in-out infinite;
+}
+
+.orbita-puntos {
+  position: absolute;
+  inset: -20px;
+}
+
+.punto {
+  position: absolute;
+  font-size: 22px;
+}
+
+.punto-1 {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orbitar 6s linear infinite;
+}
+
+.punto-2 {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  animation: orbitar 6s linear infinite 2s;
+}
+
+.punto-3 {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orbitar 6s linear infinite 4s;
+}
+
+@keyframes orbitar {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+}
+
+.texto-descripcion {
+  margin-bottom: 40px;
+}
+
+.texto-descripcion p {
+  font-size: 1.05rem;
+  color: var(--gris-texto);
+  line-height: 1.6;
+  max-width: 320px;
+  font-weight: 700;
+  margin: 0 auto;
+}
+
+.botones-bienvenida {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/*  FORMULARIOS */
+.cabecera-formulario {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 32px 20px;
+  background: var(--rosa-suave);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--rosa-claro);
+}
+
+.cabecera-formulario h2 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.4rem;
+  color: var(--lila-fuerte);
+}
+
+.boton-atras {
+  background: var(--blanco);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--lila-oscuro);
+  box-shadow: var(--sombra);
+  transition: var(--transicion);
+  flex-shrink: 0;
+}
+
+.boton-atras:hover {
+  background: var(--lila-claro);
+  transform: scale(1.05);
+}
+
+.contenedor-formulario {
+  max-width: 560px;
+  width: 90%;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.subtitulo-form {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.subtitulo-form .icono-form {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.subtitulo-form h3 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.6rem;
+  color: var(--lila-fuerte);
+  margin-bottom: 8px;
+}
+
+.subtitulo-form p {
+  color: var(--gris-texto);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Campo de contraseña con ojo */
+.campo-contrasena {
+  position: relative;
+}
+
+.campo-contrasena entrada,
+.campo-contrasena input {
+  padding-right: 15px;
+}
+
+.ojo-contrasena {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gris-texto);
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  transition: var(--transicion);
+}
+
+.ojo-contrasena:hover {
+  color: var(--lila-oscuro);
+}
+
+.enlace-olvido {
+  display: block;
+  text-align: right;
+  color: var(--lila-oscuro);
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 4px;
+  font-weight: 500;
+  transition: var(--transicion);
+}
+
+.enlace-olvido:hover {
+  color: var(--lila-fuerte);
+}
+
+.texto-alternativo {
+  text-align: center;
+  margin-top: 24px;
+  color: var(--gris-texto);
+  font-size: 0.9rem;
+}
+
+.texto-alternativo enlace {
+  color: var(--lila-oscuro);
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: var(--transicion);
+}
+
+.texto-alternativo enlace:hover {
+  color: var(--lila-fuerte);
+}
+
+.aviso-legal {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--gris-texto);
+}
+
+.aviso-legal enlace {
+  color: var(--lila-medio);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ANIMACIONES DE PANTALLAS */
+.pantalla.saliendo {
+  animation: salirIzquierda 0.35s forwards;
+}
+
+.pantalla.entrando {
+  animation: entrarDerecha 0.35s forwards;
+}
+
+@keyframes salirIzquierda {
+  to {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes entrarDerecha {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .nombre-app {
+    font-size: 3rem;
+  }
+
+  .luna-grande {
+    font-size: 60px;
+  }
+
+  .contenido-bienvenida {
+    padding: 24px 20px;
+  }
+}
+
+@media (min-width: 900px) {
+  .contenedor-formulario {
+    background: var(--blanco);
+    border-radius: var(--radio-tarjeta);
+    padding: 48px;
+    box-shadow: var(--sombra);
+    margin: 60px auto;
+  }
+}

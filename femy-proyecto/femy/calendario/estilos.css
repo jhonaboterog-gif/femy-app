@@ -1,0 +1,291 @@
+/* FEMY - Módulo Calendario */
+
+/* NAVEGACIÓN MES */
+.nav-mes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 16px;
+}
+
+.titulo-mes {
+  font-family: var(--fuente-titulo);
+  font-size: 1.4rem;
+  color: var(--lila-fuerte);
+  font-weight: 700;
+}
+
+.btn-mes {
+  background: var(--blanco);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--lila-oscuro);
+  box-shadow: var(--sombra);
+  transition: var(--transicion);
+}
+
+.btn-mes:hover {
+  background: var(--lila-claro);
+  transform: scale(1.05);
+}
+
+/* LEYENDA */
+.leyenda-calendario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  background: var(--blanco);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+}
+
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--texto-oscuro);
+}
+
+.punto-leyenda {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* CALENDARIO */
+.calendario-tarjeta {
+  padding: 20px;
+}
+
+.cabecera-dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.cabecera-dias span {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gris-texto);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 0;
+}
+
+.grilla-dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+/* CELDAS DE DÍA */
+.celda-dia {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  transition: var(--transicion);
+  color: var(--texto-oscuro);
+  user-select: none;
+}
+
+.celda-dia:hover:not(.vacia) {
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+}
+
+.celda-dia.vacia {
+  cursor: default;
+  pointer-events: none;
+}
+
+.celda-dia.hoy {
+  border: 2px solid var(--lila-oscuro);
+  font-weight: 700;
+  color: var(--lila-oscuro);
+}
+
+.celda-dia.seleccionado {
+  background: var(--lila-oscuro) !important;
+  color: white !important;
+  font-weight: 700;
+}
+
+/* Tipos de día del ciclo */
+.celda-dia.dia-periodo {
+  background: #FFD6E0;
+  color: var(--rosa-fuerte);
+}
+
+.celda-dia.dia-fertil {
+  background: #D4F5E9;
+  color: #1A6B40;
+}
+
+.celda-dia.dia-ovulacion {
+  background: var(--amarillo-ciclo);
+  color: #7A5000;
+  font-weight: 700;
+}
+
+.celda-dia.dia-premenstrual {
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+}
+
+/* Puntos indicadores */
+.indicador-dia {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--lila-oscuro);
+}
+
+.celda-dia.dia-periodo .indicador-dia {
+  background: var(--rosa-fuerte);
+}
+
+.celda-dia.dia-fertil .indicador-dia {
+  background: #1A6B40;
+}
+
+.celda-dia.dia-ovulacion .indicador-dia {
+  background: #B8860B;
+}
+
+/* DETALLE DEL DÍA */
+.detalle-dia {
+  animation: aparecer 0.3s ease;
+}
+
+.detalle-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.detalle-fecha-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1.1rem;
+  color: var(--lila-fuerte);
+  margin-bottom: 4px;
+}
+
+.detalle-dia-numero {
+  font-size: 0.82rem;
+  color: var(--gris-texto);
+}
+
+.detalle-acciones {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-detalle-accion {
+  background: var(--lila-claro);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--lila-fuerte);
+  cursor: pointer;
+  transition: var(--transicion);
+  font-family: var(--fuente-cuerpo);
+}
+
+.btn-detalle-accion:hover {
+  background: var(--lila-medio);
+  color: white;
+}
+
+.btn-icono-enc {
+  background: var(--blanco);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--lila-oscuro);
+  box-shadow: var(--sombra);
+  transition: var(--transicion);
+}
+
+.btn-icono-enc:hover {
+  background: var(--lila-claro);
+}
+
+/* PANEL EDITAR PERIODO */
+.panel-editar {
+  animation: aparecer 0.3s ease;
+}
+
+.encabezado-panel-editar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.encabezado-panel-editar h3 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.2rem;
+  color: var(--lila-fuerte);
+}
+
+.btn-cerrar-panel {
+  background: var(--gris-claro);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+  transition: var(--transicion);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cerrar-panel:hover {
+  background: var(--rosa-claro);
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .celda-dia {
+    font-size: 0.78rem;
+  }
+
+  .leyenda-calendario {
+    gap: 10px;
+  }
+}

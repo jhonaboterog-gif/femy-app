@@ -1,0 +1,438 @@
+/* FEMY - Módulo Inicio / Dashboard */
+
+/* ENCABEZADO */
+.encabezado-inicio {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 28px 32px 16px;
+  position: sticky;
+  top: 0;
+  background: var(--rosa-suave);
+  z-index: 100;
+  border-bottom: 1px solid var(--rosa-claro);
+}
+
+.saludo-usuario h1 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.8rem;
+  color: var(--lila-fuerte);
+  margin-bottom: 2px;
+}
+
+.fecha-hoy {
+  font-size: 0.85rem;
+  color: var(--gris-texto);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.iconos-encabezado {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.icono-btn {
+  position: relative;
+  background: var(--blanco);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--lila-oscuro);
+  box-shadow: var(--sombra);
+  transition: var(--transicion);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.icono-btn:hover {
+  background: var(--lila-claro);
+  transform: scale(1.05);
+}
+
+.badge-notif {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  background: var(--rosa-fuerte);
+  border-radius: 50%;
+  border: 2px solid var(--blanco);
+  display: none;
+}
+
+.badge-notif.visible {
+  display: block;
+}
+
+/* TARJETA PRINCIPAL DEL CICLO */
+.tarjeta-ciclo-principal {
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #9B4DC4 0%, #C97FE8 60%, #E8A4F8 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(155, 77, 196, 0.35);
+}
+
+.tarjeta-ciclo-principal::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  top: -60px;
+  right: -40px;
+}
+
+.tarjeta-ciclo-principal::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  bottom: -50px;
+  left: -30px;
+}
+
+.ciclo-info-superior {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.etiqueta-estado {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 4px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.dias-restantes {
+  font-family: var(--fuente-titulo);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.dias-restantes span {
+  font-size: 1.1rem;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.rango-fechas {
+  font-size: 0.88rem;
+  opacity: 0.85;
+  font-weight: 300;
+}
+
+/* Barra de progreso del ciclo */
+.barra-progreso-ciclo {
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+.etiqueta-progreso {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  opacity: 0.8;
+  margin-bottom: 6px;
+}
+
+.barra-track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50px;
+  transition: width 1s ease;
+}
+
+/* BOTONES DE PERIODO */
+.botones-periodo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn-periodo {
+  padding: 14px 20px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transicion);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-inicio-periodo {
+  background: var(--rosa-fuerte);
+  color: white;
+  box-shadow: 0 4px 12px rgba(232, 82, 122, 0.3);
+}
+
+.btn-inicio-periodo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(232, 82, 122, 0.4);
+}
+
+.btn-fin-periodo {
+  background: var(--blanco);
+  color: var(--lila-fuerte);
+  border: 2px solid var(--lila-claro);
+  box-shadow: var(--sombra);
+}
+
+.btn-fin-periodo:hover {
+  background: var(--lila-claro);
+  transform: translateY(-2px);
+}
+
+/* SECCIONES */
+.titulo-seccion {
+  font-family: var(--fuente-titulo);
+  font-size: 1.1rem;
+  color: var(--lila-fuerte);
+  margin-bottom: 16px;
+}
+
+.encabezado-seccion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.encabezado-seccion .titulo-seccion {
+  margin-bottom: 0;
+}
+
+.enlace-editar {
+  background: none;
+  border: none;
+  color: var(--lila-oscuro);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: var(--transicion);
+  font-family: var(--fuente-cuerpo);
+}
+
+.enlace-editar:hover {
+  color: var(--lila-fuerte);
+}
+
+/* FASES DEL CICLO */
+.lista-fases {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item-fase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 14px;
+  transition: var(--transicion);
+}
+
+.item-fase-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.punto-fase {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.fase-nombre {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.fase-descripcion {
+  font-size: 0.78rem;
+  color: var(--gris-texto);
+}
+
+.fase-fecha {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* CHIPS DE SÍNTOMAS */
+.chips-sintomas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip-sintoma {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--lila-claro);
+  color: var(--lila-fuerte);
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.chips-vacio {
+  color: var(--gris-texto);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
+/* TARJETA CONSEJO */
+.tarjeta-consejo {
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #FFF8E7 0%, #FFE8B0 100%);
+  border-left: 4px solid var(--amarillo-ciclo);
+}
+
+.consejo-emoji {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.consejo-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 1rem;
+  color: #7A5A00;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.consejo-texto {
+  font-size: 0.88rem;
+  color: #5A4200;
+  line-height: 1.6;
+}
+
+/* MODALES */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 45, 45, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: aparecer 0.3s ease;
+}
+
+.modal-contenido {
+  background: var(--blanco);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  animation: aparecer 0.3s ease;
+}
+
+.modal-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid var(--rosa-claro);
+}
+
+.modal-encabezado h3 {
+  font-family: var(--fuente-titulo);
+  font-size: 1.2rem;
+  color: var(--lila-fuerte);
+}
+
+.btn-cerrar-modal {
+  background: var(--gris-claro);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--gris-texto);
+  transition: var(--transicion);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cerrar-modal:hover {
+  background: var(--rosa-claro);
+  color: var(--rosa-fuerte);
+}
+
+.modal-cuerpo {
+  padding: 20px 24px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-pie {
+  padding: 16px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .encabezado-inicio {
+    padding: 20px 20px 12px;
+  }
+
+  .tarjeta-ciclo-principal {
+    padding: 24px;
+  }
+
+  .dias-restantes {
+    font-size: 2.2rem;
+  }
+}
